@@ -1,0 +1,17 @@
+[user]
+email = hobartlin23@gmail.com
+name = Ethkuil
+[core]
+quotepath = off
+editor = code --wait
+[alias]
+alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+ff = merge --ff-only
+last = log -1 HEAD
+msg = commit --allow-empty -m
+refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
+undo = reset --soft HEAD^
+[push]
+default = current
+[pull]
+rebase = true

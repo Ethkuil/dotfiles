@@ -1,0 +1,18 @@
+from decimal import Decimal as D
+from fractions import Fraction as F
+from importlib import reload
+from math import *
+from pprint import pp
+
+try:
+    import numpy as np
+except ModuleNotFoundError:
+    pass
+
+try:
+    from rich import pretty, traceback
+except ModuleNotFoundError:
+    pass
+else:
+    pretty.install()
+    traceback.install(show_locals=False)
