@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# But don't ignore directories, so we can recurse into them
+!*/
+
+# Don't ignore dotfiles
+!.*
