@@ -5,6 +5,7 @@ name = Ethkuil
 quotepath = off
 editor = code --wait
 [alias]
+# alias: list all aliases
 alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 # glog: grep log
 glog = "!f() { git log --pretty=basic --name-status --grep=$1; }; f"
