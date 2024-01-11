@@ -11,6 +11,8 @@ mkcd() {
 alias testip='curl -L cip.cc'
 alias unsetproxy='unset ALL_PROXY'
 
+export PYTHONSTARTUP=~/.pythonrc
+
 # --- Windows Only ---
 alias setproxy='export ALL_PROXY=http://localhost:7890'
 export PROMPT_COMMAND='history -a'
