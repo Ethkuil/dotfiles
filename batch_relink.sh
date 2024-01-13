@@ -6,17 +6,11 @@
 # Note: On Windows, you need to have the necessary permissions to create symbolic links.
 
 os() {
-  case $OSTYPE in
-  linux-gnu* | darwin* | freebsd*)
-    echo "Unix"
-    ;;
-  cygwin | msys | win32)
-    echo "Windows"
-    ;;
-  *)
-    echo "Unknown"
-    ;;
-  esac
+	case $OSTYPE in
+	linux-gnu* | darwin* | freebsd*) echo "Unix" ;;
+	cygwin | msys | win32) echo "Windows" ;;
+	*) echo "Unknown" ;;
+	esac
 }
 
 source_dir=$1
