@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Usage: batch_relink.sh <source_dir> <target_dir> <rel_path1> <rel_path2> ...
 

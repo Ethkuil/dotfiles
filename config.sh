@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 ./batch_relink.sh . ~ .bashrc .gitconfig .pythonrc .vimrc
 
