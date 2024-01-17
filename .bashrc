@@ -27,6 +27,8 @@ alias duration='ffprobe -v error -show_entries format=duration -of default=nopri
 alias ?='gh copilot explain'
 alias ??='gh copilot suggest'
 
+alias explain='start https://explainshell.com'
+
 eval "$(zoxide init bash)"
 
 export GOPROXY=https://goproxy.cn,direct
