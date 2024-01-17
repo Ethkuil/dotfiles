@@ -11,6 +11,7 @@ mkcd() {
 alias testip='curl -L cip.cc'
 alias unsetproxy='unset ALL_PROXY'
 
+export EDITOR=vim
 export PYTHONSTARTUP=~/.pythonrc
 
 # --- Windows Only ---
