@@ -10,6 +10,10 @@ mkcd() {
 }
 alias testip='curl -L cip.cc'
 alias unsetproxy='unset ALL_PROXY'
+eval "$(zoxide init bash)"
+zz() {
+  cd $(fd -td "$1" /d/ | fzf)
+}
 
 export EDITOR=vim
 export PYTHONSTARTUP=~/.pythonrc
@@ -28,8 +32,6 @@ alias ?='gh copilot explain'
 alias ??='gh copilot suggest'
 
 alias explain='start https://explainshell.com'
-
-eval "$(zoxide init bash)"
 
 export GOPROXY=https://goproxy.cn,direct
 ## --- END unstable ---
