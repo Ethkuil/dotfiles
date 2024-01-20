@@ -13,7 +13,7 @@ alias unsetproxy='unset ALL_PROXY'
 eval "$(zoxide init bash)"
 # it's also nice to leave $1 empty and only filter in fzf, which is fuzzy!
 zz() {
-  cd $(fd -td "$1" /d/ | fzf)
+  cd "$(fd -td "$1" /d/ | fzf)"
 }
 
 export EDITOR=vim
