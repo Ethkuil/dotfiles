@@ -11,15 +11,16 @@ mkcd() {
 alias testip='curl -L cip.cc'
 alias unsetproxy='unset ALL_PROXY'
 eval "$(zoxide init bash)"
-# it's also nice to leave $1 empty and only filter in fzf, which is fuzzy!
-zz() {
-  cd "$(fd -td "$1" /d/ | fzf)"
-}
 
 export EDITOR=vim
 export PYTHONSTARTUP=~/.pythonrc
 
 # --- Windows Only ---
+# it's also nice to leave $1 empty and only filter in fzf, which is fuzzy!
+zz() {
+  cd "$(fd -u -td "$1" /d/ | fzf)"
+}
+
 alias setproxy='export ALL_PROXY=http://localhost:7890'
 export PROMPT_COMMAND='history -a'
 export PATH="$PATH:/c/msys64/usr/bin/"
