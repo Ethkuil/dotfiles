@@ -1,5 +1,5 @@
 # --- General ---
-alias '..'='cd ..'
+alias '..=cd ..' # 'shopt -s autocd' goes too far for me.
 alias la='ls -A'
 alias ll='ls -lth'
 alias lla='ll -A'
