@@ -1,3 +1,8 @@
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
 " Comments in Vimscript start with a `"`.
 
 " If you open this file in Vim, it'll be syntax highlighted for you.
