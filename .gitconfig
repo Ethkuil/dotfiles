@@ -13,6 +13,7 @@ ff = merge --ff-only
 last = log -1 HEAD
 msg = commit -m
 refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
+st = status
 undo = reset --soft HEAD^
 zip = archive --format=zip -o latest.zip HEAD
 [push]
