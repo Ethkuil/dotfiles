@@ -8,7 +8,7 @@ editor = code --wait
 # alias: list all aliases
 alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 # glog: grep log
-glog = "!f() { git log --pretty=basic --name-status --grep=$1; }; f"
+glog = "!f() { git log --name-status --grep=$1; }; f"
 ff = merge --ff-only
 last = log -1 HEAD
 msg = commit -m
