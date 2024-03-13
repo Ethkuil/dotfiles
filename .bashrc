@@ -17,19 +17,21 @@ mkcd() {
     mkdir -p "$1"
     cd "$1"
 }
-alias setproxy='export ALL_PROXY=http://localhost:7890'
-alias testip='curl -L cip.cc'
-alias unsetproxy='unset ALL_PROXY'
 eval "$(zoxide init bash)"
 
 export EDITOR=vim
 export PYTHONSTARTUP=~/.pythonrc
+
+alias testip='curl -L cip.cc'
+alias unsetproxy='unset ALL_PROXY'
+port=7890
 
 ## --- BEGIN unstable ---
 export GOPROXY=https://goproxy.cn,direct
 ## --- END unstable ---
 
 if [[ "$(os)" == "Windows" ]]; then
+    alias setproxy='export ALL_PROXY=http://localhost:$port'
     # it's also nice to leave $1 empty and only filter in fzf, which is fuzzy!
     zz() {
         cd "$(fd -td "$1" '/d' | fzf)"
@@ -42,12 +44,13 @@ if [[ "$(os)" == "Windows" ]]; then
     export PATH="$PATH:/c/msys64/usr/bin/"
     export PYTHONIOENCODING='utf-8'
 
-    setproxy
 else
     # WSL
-    export hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
+    export host_ip=$(cat /etc/resolv.conf | awk '$1 == "nameserver" { print $2 }')
+    alias setproxy='export ALL_PROXY=http://$host_ip:$port'
     zz() {
         cd "$(fd -td "$1" '/home' '/srv' '/var' | fzf)"
     }
 fi
 
+setproxy
