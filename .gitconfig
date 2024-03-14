@@ -20,3 +20,5 @@ zip = archive --format=zip -o latest.zip HEAD
 default = current
 [pull]
 rebase = true
+[safe]
+	directory = *
