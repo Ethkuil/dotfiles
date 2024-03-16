@@ -32,9 +32,15 @@ export GOPROXY=https://goproxy.cn,direct
 
 if [[ "$(os)" == "Windows" ]]; then
     alias setproxy='export ALL_PROXY=http://localhost:$port'
-    # it's also nice to leave $1 empty and only filter in fzf, which is fuzzy!
     zz() {
-        cd "$(fd -td "$1" '/d' | fzf)"
+        pattern="$1"
+        shift
+        if [ "$#" -eq 0 ]; then
+            paths=("/d")
+        else
+            paths=("$@")
+        fi
+        cd "$(fd -td "$pattern" "${paths[@]}" | fzf)"
     }
 
     # Dependent on FFmpeg
@@ -49,8 +55,16 @@ else
     export host_ip=$(cat /etc/resolv.conf | awk '$1 == "nameserver" { print $2 }')
     alias setproxy='export ALL_PROXY=http://$host_ip:$port'
     zz() {
-        cd "$(fd -td "$1" '/home' '/srv' '/var' | fzf)"
+        pattern="$1"
+        shift
+        if [ "$#" -eq 0 ]; then
+            paths=("/home" "/srv" "/var")
+        else
+            paths=("$@")
+        fi
+        cd "$(fd -td "$pattern" "${paths[@]}" | fzf)"
     }
 fi
 
 setproxy
+
