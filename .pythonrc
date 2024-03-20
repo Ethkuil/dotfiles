@@ -8,6 +8,12 @@ try:
     import numpy as np
 except ModuleNotFoundError:
     pass
+try:
+    from pint import UnitRegistry
+except ModuleNotFoundError:
+    pass
+else:
+    ureg = UnitRegistry()
 
 try:
     from rich import pretty, traceback
