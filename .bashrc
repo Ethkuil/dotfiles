@@ -17,7 +17,6 @@ mkcd() {
     mkdir -p "$1"
     cd "$1"
 }
-eval "$(zoxide init bash)"
 
 export EDITOR=vim
 export PYTHONSTARTUP=~/.pythonrc
