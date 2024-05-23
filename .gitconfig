@@ -1,22 +1,22 @@
 [user]
-email = hobartlin23@gmail.com
-name = Ethkuil
+	email = hobartlin23@gmail.com
+	name = Ethkuil
 [core]
-quotepath = off
-editor = code --wait
+	quotepath = off
+	editor = code --wait
 [alias]
-# alias: list all aliases
-alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-# glog: grep log
-glog = "!f() { git log --name-status --grep=$1; }; f"
-graph = log --all --graph --decorate --oneline
-ff = merge --ff-only
-refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
-st = status
-zip = archive --format=zip -o latest.zip HEAD
+	# alias: list all aliases
+	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	# glog: grep log
+	glog = "!f() { git log --name-status --grep=$1; }; f"
+	graph = log --all --graph --decorate --oneline
+	ff = merge --ff-only
+	refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
+	st = status
+	zip = archive --format=zip -o latest.zip HEAD
 [push]
-default = current
+	default = current
 [pull]
-rebase = true
+	rebase = true
 [safe]
 	directory = *
