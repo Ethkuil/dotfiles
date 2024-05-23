@@ -9,6 +9,7 @@ editor = code --wait
 alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 # glog: grep log
 glog = "!f() { git log --name-status --grep=$1; }; f"
+graph = log --all --graph --decorate --oneline
 ff = merge --ff-only
 refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
 st = status
