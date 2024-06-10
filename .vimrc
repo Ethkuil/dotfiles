@@ -1,3 +1,8 @@
+"set autoindent           " 设置自动缩进
+"set cindent              " 设置使用C/C++语言的自动缩进方式
+"set cinoptions=g0,:0,N-s,(0 " 设置C/C++语言的具体缩进方式
+"set smartindent          " 智能的选择对其方式
+"filetype indent on       " 自适应不同语言的智能缩进
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -68,18 +73,3 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
-" Do this in normal mode...
-nnoremap <Left>  :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up>    :echoe "Use k"<CR>
-nnoremap <Down>  :echoe "Use j"<CR>
-" ...and in insert mode
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
