@@ -45,6 +45,8 @@ if [[ "$(os)" == "Windows" ]]; then
     # Dependent on FFmpeg
     alias duration='ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1'
 
+    # some specific tools related
+    alias tldr='tldr --linux'
     export PROMPT_COMMAND='history -a'
     export PATH="$PATH:/c/msys64/usr/bin/"
     export PYTHONIOENCODING='utf-8'
