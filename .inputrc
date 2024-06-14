@@ -1,0 +1,14 @@
+$include /etc/inputrc
+
+set match-hidden-files off
+set skip-completed-text on
+
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+
+# Just like '--color' for `ls`
+set colored-stats On
+# Just like `-F` for `ls`
+set visible-stats On
+set completion-prefix-display-length 3
+
