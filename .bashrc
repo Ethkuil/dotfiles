@@ -18,7 +18,7 @@ mkcd() {
     cd "$1"
 }
 
-export EDITOR=vim
+export VISUAL=vim
 export PYTHONSTARTUP=~/.pythonrc
 
 alias testip='curl -L cip.cc'
