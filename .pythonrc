@@ -1,10 +1,9 @@
+# calculate
 from decimal import Decimal
 from decimal import Decimal as D
 from fractions import Fraction
 from fractions import Fraction as F
-from importlib import reload
 from math import *
-from pprint import pp
 
 try:
     import numpy as np
@@ -17,6 +16,7 @@ except ModuleNotFoundError:
 else:
     ureg = UnitRegistry()
 
+# style
 try:
     from rich import pretty, traceback
 except ModuleNotFoundError:
