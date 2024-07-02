@@ -9,6 +9,7 @@ os() {
 }
 
 alias '..=cd ..' # 'shopt -s autocd' goes too far for me.
+alias grep='grep --color=auto'
 # no `-F` flag so that they can still be used with pipeline
 alias la='ls -A'
 alias ll='ls -lth'
