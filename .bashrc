@@ -20,6 +20,7 @@ mkcd() {
     cd "$1"
 }
 
+export HISTIGNORE="ls:ll:cd:pwd:[bf]g:exit:pwd:history:[ \t]*"
 export VISUAL=vim
 export PYTHONSTARTUP=~/.pythonrc
 
