@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./batch_relink.sh . ~ .bashrc .inputrc
+./batch_relink.sh . ~ .bashrc .bash_aliases .inputrc
 ./batch_relink.sh . ~ .ssh/
 
 ./batch_relink.sh . ~ .gitconfig
