@@ -23,7 +23,7 @@ export VISUAL=vim
 export PYTHONSTARTUP=~/.pythonrc
 
 alias testip='curl -L cip.cc'
-alias unsetproxy='unset ALL_PROXY'
+alias unproxy='unset ALL_PROXY'
 port=7890
 
 ## --- BEGIN unstable ---
@@ -31,7 +31,7 @@ export GOPROXY=https://goproxy.cn,direct
 ## --- END unstable ---
 
 if [[ "$(os)" == "Windows" ]]; then
-    alias setproxy='export ALL_PROXY=http://localhost:$port'
+    alias proxy='export ALL_PROXY=http://localhost:$port'
     zz() {
         pattern="$1"
         shift
@@ -55,7 +55,7 @@ if [[ "$(os)" == "Windows" ]]; then
 else
     # WSL
     export host_ip=$(cat /etc/resolv.conf | awk '$1 == "nameserver" { print $2 }')
-    alias setproxy='export ALL_PROXY=http://$host_ip:$port'
+    alias proxy='export ALL_PROXY=http://$host_ip:$port'
     zz() {
         pattern="$1"
         shift
@@ -68,5 +68,5 @@ else
     }
 fi
 
-setproxy
+proxy
 
