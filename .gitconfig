@@ -7,6 +7,7 @@
 [alias]
 	# alias: list all aliases
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	cm = commit -m
 	# glog: grep log
 	glog = "!f() { git log --name-status --grep=$1; }; f"
 	graph = log --all --graph --decorate --oneline
@@ -16,10 +17,12 @@
 	refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
 	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
 	# While commit = com<tab>, switch = swi<tab>, branch = br<tab>, merge = mer<tab>, rebase = reb<tab> are all easy enough for me.
-	st = status
+	st = status -sb
 [push]
 	default = current
 [pull]
 	rebase = true
 [safe]
 	directory = *
+[credential "https://git.tsinghua.edu.cn"]
+	provider = generic
