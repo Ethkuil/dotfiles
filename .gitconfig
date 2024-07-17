@@ -3,7 +3,6 @@
 	name = Ethkuil
 [core]
 	quotepath = off
-	editor = code --wait
 [alias]
 	# alias: list all aliases
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
@@ -22,7 +21,4 @@
 	default = current
 [pull]
 	rebase = true
-[safe]
-	directory = *
-[credential "https://git.tsinghua.edu.cn"]
-	provider = generic
+
