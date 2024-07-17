@@ -14,7 +14,7 @@ try:
 except ModuleNotFoundError:
     pass
 else:
-    ureg = UnitRegistry()
+    Q = UnitRegistry() # Quantity
 
 # style
 try:
