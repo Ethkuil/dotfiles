@@ -9,7 +9,7 @@
 	cm = commit -m
 	# glog: grep log
 	glog = "!f() { git log --name-status --grep=$1; }; f"
-	graph = log --all --graph --decorate --oneline
+	graph = log --all --graph --oneline
 	# fast-forward merge is the intersection of merge and rebase, which should be the default behavior IMO.
 	ff = merge --ff-only
 	# refresh: update main branch and update current branch with main
@@ -21,4 +21,3 @@
 	default = current
 [pull]
 	rebase = true
-
