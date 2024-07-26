@@ -6,6 +6,7 @@
 [alias]
 	# alias: list all aliases
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	amend = commit --amend -C HEAD
 	cm = commit -m
 	# glog: grep log
 	glog = "!f() { git log --name-status --grep=$1; }; f"
