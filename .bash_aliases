@@ -1,4 +1,12 @@
-alias '..=cd ..' # 'shopt -s autocd' goes too far for me.
+# `shopt -s autocd` goes too far for me.
+# `.. <num>` will move up three levels.
+..() {
+    if [ -z "$1" ]; then
+        cd ..
+    else
+        cd $(awk "BEGIN {while (c++<\$1) printf \"../\"}")
+    fi
+}
 alias grep='grep --color=auto'
 # no `-F` flag so that they can still be used with pipeline
 alias la='ls -A'
