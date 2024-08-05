@@ -4,7 +4,7 @@
     if [ -z "$1" ]; then
         cd ..
     else
-        cd $(awk "BEGIN {while (c++<\$1) printf \"../\"}")
+        cd $(awk -v num="$1" 'BEGIN {while (i++ < num) printf "../"}')
     fi
 }
 alias grep='grep --color=auto'
