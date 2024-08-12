@@ -18,6 +18,11 @@
 	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
 	# While commit = com<tab>, switch = swi<tab>, branch = br<tab>, merge = mer<tab>, rebase = reb<tab> are all easy enough for me.
 	st = status -sb
+
+    # "aliases" in mind:
+    # unstage = reset
+    # uncommit = reset
+    # discard = reset / checkout
 [push]
 	default = current
 [pull]
