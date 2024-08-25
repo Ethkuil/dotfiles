@@ -4,25 +4,27 @@
 [core]
 	quotepath = off
 [alias]
-	# alias: list all aliases
-	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 	amend = commit --amend -C HEAD
 	cm = commit -m
+	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
+	st = status -sb
+	# reset and restore share the same first 3 letters, which makes tab completion hard to use.
+	uncommit = reset HEAD~
+	undo = restore
+	unstage = reset
+
+	# ---
+
+	# alias: list all aliases
+	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	# fast-forward merge is the intersection of merge and rebase, which should be the default behavior IMO.
+	ff = merge --ff-only
 	# glog: grep log
 	glog = "!f() { git log --name-status --grep=$1; }; f"
 	graph = log --graph --oneline
-	# fast-forward merge is the intersection of merge and rebase, which should be the default behavior IMO.
-	ff = merge --ff-only
 	# refresh: update main branch and update current branch with main
 	refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
-	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
-	# While commit = com<tab>, switch = swi<tab>, branch = br<tab>, merge = mer<tab>, rebase = reb<tab> are all easy enough for me.
-	st = status -sb
 
-    # "aliases" in mind:
-    # unstage = reset
-    # uncommit = reset
-    # discard = reset / checkout
 [push]
 	default = current
 [pull]
