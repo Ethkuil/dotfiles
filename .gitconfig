@@ -6,6 +6,8 @@
 [alias]
 	amend = commit --amend -C HEAD
 	cm = commit -m
+	ds = diff --staged
+	sm = stash push -m
 	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
 	st = status -sb
 	# reset and restore share the same first 3 letters, which makes tab completion hard to use.
@@ -17,8 +19,6 @@
 
 	# alias: list all aliases
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-	# fast-forward merge is the intersection of merge and rebase, which should be the default behavior IMO.
-	ff = merge --ff-only
 	# glog: grep log
 	glog = "!f() { git log --name-status --grep=$1; }; f"
 	graph = log --graph --oneline
