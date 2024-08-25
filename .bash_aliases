@@ -19,10 +19,10 @@ mkcd() {
     cd "$1"
 }
 
-alias testip='curl -L cip.cc'
-alias unproxy='unset ALL_PROXY'
+alias unproxy='unset https_proxy http_proxy all_proxy'
 
 if [[ "$(os)" == "Windows" ]]; then
+    alias proxy='export https_proxy=http://localhost:$port;export http_proxy=http://localhost:$port;export all_proxy=socks5://localhost:$port'
     alias proxy='export ALL_PROXY=http://localhost:$port'
     zz() {
         pattern="$1"
@@ -47,7 +47,7 @@ if [[ "$(os)" == "Windows" ]]; then
 
 else
     # WSL
-    alias proxy='export ALL_PROXY=http://$host_ip:$port'
+    alias proxy='export https_proxy=http://$host_ip:$port;export http_proxy=http://$host_ip:$port;export all_proxy=socks5://$host_ip:$port'
     zz() {
         pattern="$1"
         shift
