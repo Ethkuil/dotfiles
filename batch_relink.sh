@@ -38,7 +38,7 @@ for rel_path in $rel_paths; do
     # By default, the ln -s command in Git Bash does not create symbolic links. Instead, it creates copies.
     # To create symbolic links (provided your account has permission to do so), use the built-in mklink command.
     # cygpath -m: convert '/c/Users/...' to 'C:/Users/...'
-    sudo ./symlink.bat "$(cygpath -m "$source_path")" "$(cygpath -m "$target_path")"
+    sudo "$(dirname "$0")/symlink.bat" "$(cygpath -m "$source_path")" "$(cygpath -m "$target_path")"
     ;;
   *)
     echo "Unsupported operating system."
