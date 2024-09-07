@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./batch_relink . ~ .inputrc .tmux.conf
+./batch_relink . ~ .ssh/
+
+./batch_relink . ~ .bash*
+./batch_relink . ~ .gitconfig .vimrc
+
+./batch_relink . ~ .pythonrc
+
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple

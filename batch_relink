@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: batch_relink.sh <source_dir> <target_dir> <rel_path1> <rel_path2> ...
+# Usage: batch_relink <source_dir> <target_dir> <rel_path1> <rel_path2> ...
 
 # This script creates symbolic links from a source directory to a target directory for a list of relative paths.
 # Note: On Windows, you need to have the necessary permissions to create symbolic links. This script depends on `sudo` (winget add gerardog.gsudo).
