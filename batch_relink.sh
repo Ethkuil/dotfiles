@@ -3,15 +3,9 @@
 # Usage: batch_relink.sh <source_dir> <target_dir> <rel_path1> <rel_path2> ...
 
 # This script creates symbolic links from a source directory to a target directory for a list of relative paths.
-# Note: On Windows, you need to have the necessary permissions to create symbolic links.
+# Note: On Windows, you need to have the necessary permissions to create symbolic links. This script depends on `sudo` (winget add gerardog.gsudo).
 
-os() {
-	case $OSTYPE in
-	linux-gnu* | darwin* | freebsd*) echo "Unix" ;;
-	cygwin | msys | win32) echo "Windows" ;;
-	*) echo "Unknown" ;;
-	esac
-}
+. "$(dirname "$0")/platform.sh"
 
 source_dir=$1
 target_dir=$2
@@ -31,17 +25,11 @@ for rel_path in $rel_paths; do
   fi
 
   case $(os) in
-  Unix)
-    ln -s "$source_path" "$target_path"
-    ;;
-  Windows)
-    # By default, the ln -s command in Git Bash does not create symbolic links. Instead, it creates copies.
-    # To create symbolic links (provided your account has permission to do so), use the built-in mklink command.
-    # cygpath -m: convert '/c/Users/...' to 'C:/Users/...'
-    sudo "$(dirname "$0")/symlink.bat" "$(cygpath -m "$source_path")" "$(cygpath -m "$target_path")"
-    ;;
-  *)
-    echo "Unsupported operating system."
-    ;;
+  # By default, the ln -s command in Git Bash does not create symbolic links. Instead, it creates copies.
+  # To create symbolic links (provided your account has permission to do so), use the built-in mklink command.
+  # cygpath -m: convert '/c/Users/...' to 'C:/Users/...'
+  Windows) sudo "$(dirname "$0")/symlink.bat" "$(cygpath -m "$source_path")" "$(cygpath -m "$target_path")" ;;
+  Unknown) echo "Unsupported operating system." ;;
+  *) ln -s "$source_path" "$target_path" ;;
   esac
 done
