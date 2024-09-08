@@ -80,9 +80,9 @@ zz() {
   pattern="$1"
   shift
   if [ "$#" -eq 0 ]; then
-    paths="${search_paths[@]}"
+    paths=("${search_paths[@]}")
   else
-    paths="$@"
+    paths=("$@")
   fi
   cd "$(fd -td "$pattern" "${paths[@]}" | fzf)"
 }
