@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 case $- in
-  *i*) ;;
-    *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # `realpath` for symbolic link
@@ -44,7 +44,7 @@ shopt -s globstar
 
 export PYTHONSTARTUP=~/.pythonrc
 export VISUAL=vim
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
   # not idempotent, but it doesn't matter.
   export PATH="$HOME/bin:$PATH"
 fi
