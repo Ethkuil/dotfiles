@@ -2,6 +2,8 @@
 	email = hobartlin23@gmail.com
 	name = Ethkuil
 [core]
+	autocrlf = input
+	eol = lf
 	quotepath = off
 [alias]
 	amend = commit --amend -C HEAD
