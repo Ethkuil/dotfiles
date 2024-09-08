@@ -9,11 +9,3 @@ os() {
     *) echo "Unknown" ;;
   esac
 }
-
-is_wsl() {
-  if [ -e /etc/wsl.conf ]; then
-    return 0
-  else
-    return 1
-  fi
-}

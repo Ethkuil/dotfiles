@@ -3,7 +3,7 @@
 ./batch_relink . ~ .inputrc .tmux.conf
 ./batch_relink . ~ .ssh/
 
-./batch_relink . ~ .bash*
+./batch_relink . ~ .bashrc
 ./batch_relink . ~ .gitconfig .vimrc
 
 ./batch_relink . ~ .pythonrc
