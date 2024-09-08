@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Convention: call this script in this directory. So no more "$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
+
+. ./platform.sh
+
+# install basic tools
+case $(os) in
+Windows)
+  winget='winget install --accept-source-agreements --accept-package-agreements'
+  wingetH="$winget --source winget -h -e --id"
+  # runtime
+  sudo $wingetH Python.Python.3.12
+  sudo $wingetH OpenJS.NodeJS.LTS
+  # more Linux-style
+  $wingetH MSYS2.MSYS2
+  # basic tools
+  $wingetH BurntSushi.ripgrep.MSVC
+  $wingetH sharkdp.fd
+  $wingetH junegunn.fzf
+  ;;
+Ubuntu)
+  sudo apt update
+  sudo apt upgrade -y
+  # runtime
+  sudo apt install python-is-python3
+  sudo apt install python3-pip -y
+  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+  sudo apt install nodejs npm -y
+  # basic tools
+  sudo apt install fd-find
+  mkdir -p ~/bin && ln -s $(which fdfind) ~/bin/fd
+  sudo apt install fzf
+  sudo apt install ripgrep
+  sudo npm install -g tldr
+  # dev of Shell
+  sudo apt install shfmt
+  # dev of C/C++
+  sudo apt install build-essential
+  sudo apt install gdb -y
+  sudo apt install cmake -y
+  ;;
+esac
+
+./config
