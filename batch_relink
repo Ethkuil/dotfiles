@@ -12,7 +12,7 @@ target_dir="$2"
 shift 2
 rel_paths=("$@")
 
-for rel_path in $rel_paths; do
+for rel_path in "${rel_paths[@]}"; do
   source_path=$(realpath -s "$source_dir/$rel_path")
   target_path=$(realpath -s "$target_dir/$rel_path")
 
