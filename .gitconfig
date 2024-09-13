@@ -26,7 +26,7 @@
 	graph = log --graph --oneline
 	# refresh: update main branch and update current branch with main
 	refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
-
+	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\""
 [push]
 	default = current
 [pull]
