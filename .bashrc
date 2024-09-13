@@ -37,8 +37,10 @@ HISTCONTROL=ignoreboth
 HISTIGNORE="?:??:pwd:exit:history*:zz *"
 HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
+shopt -s histverify
 
 shopt -s globstar
+shopt -s extglob
 
 # --- environment ---
 
