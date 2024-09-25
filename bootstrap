@@ -11,13 +11,16 @@ Windows)
   wingetH="$winget --source winget -h -e --id"
   # runtime
   sudo $wingetH Python.Python.3.12
+  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   sudo $wingetH OpenJS.NodeJS.LTS
   # more Linux-style
   $wingetH MSYS2.MSYS2
+  pacman -S --noconfirm rsync tree zip
   # basic tools
-  $wingetH BurntSushi.ripgrep.MSVC
   $wingetH sharkdp.fd
   $wingetH junegunn.fzf
+  $wingetH BurntSushi.ripgrep.MSVC
+  npm install -g tldr
   ;;
 Ubuntu)
   sudo apt update
