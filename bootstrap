@@ -9,13 +9,16 @@ case $(os) in
 Windows)
   winget='winget install --accept-source-agreements --accept-package-agreements'
   wingetH="$winget --source winget -h -e --id"
+
   # runtime
   sudo $wingetH Python.Python.3.12
   pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   sudo $wingetH OpenJS.NodeJS.LTS
+
   # more Linux-style
   $wingetH MSYS2.MSYS2
   pacman -S --noconfirm rsync tree zip
+
   # basic tools
   $wingetH sharkdp.fd
   $wingetH junegunn.fzf
@@ -25,11 +28,13 @@ Windows)
 Ubuntu)
   sudo apt update
   sudo apt upgrade -y
+
   # runtime
   sudo apt install python-is-python3
   sudo apt install python3-pip -y
   pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   sudo apt install nodejs npm -y
+
   # basic tools
   # fix vim clipboard
   sudo apt install vim-gtk3 -y
@@ -38,6 +43,7 @@ Ubuntu)
   sudo apt install fzf
   sudo apt install ripgrep
   sudo npm install -g tldr
+
   # dev of Shell
   sudo apt install shfmt
   # dev of C/C++
