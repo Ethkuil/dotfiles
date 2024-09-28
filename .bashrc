@@ -34,10 +34,10 @@ shopt -s histappend
 HISTFILESIZE=1000000
 HISTSIZE=1000000
 HISTCONTROL=ignoreboth
-HISTIGNORE="?:??:pwd:exit:history*:zz *"
-HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist
 shopt -s histverify
+# unsure
+HISTTIMEFORMAT='%F %T '
 
 shopt -s globstar
 shopt -s extglob
