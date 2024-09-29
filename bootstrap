@@ -23,6 +23,7 @@ Windows)
   $wingetH sharkdp.fd
   $wingetH junegunn.fzf
   $wingetH BurntSushi.ripgrep.MSVC
+  pip install icdiff
   npm install -g tldr
   ;;
 Ubuntu)
@@ -43,7 +44,8 @@ Ubuntu)
   mkdir -p ~/bin && ln -s $(which fdfind) ~/bin/fd
   sudo apt install fzf
   sudo apt install ripgrep
-  sudo npm install -g tldr
+  pip install icdiff
+  npm install -g tldr
 
   # dev of Shell
   sudo apt install shfmt
