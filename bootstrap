@@ -35,9 +35,10 @@ Ubuntu)
   pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   sudo apt install nodejs npm -y
 
-  # basic tools
   # fix vim clipboard
   sudo apt install vim-gtk3 -y
+
+  # basic tools
   sudo apt install fd-find
   mkdir -p ~/bin && ln -s $(which fdfind) ~/bin/fd
   sudo apt install fzf
