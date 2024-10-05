@@ -4,6 +4,7 @@ from decimal import Decimal as D
 from fractions import Fraction
 from fractions import Fraction as F
 from math import *
+from builtins import pow # I prefer built-in pow to math.pow in REPL.
 
 try:
     import numpy as np
