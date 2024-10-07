@@ -5,6 +5,7 @@ from fractions import Fraction
 from fractions import Fraction as F
 from math import *
 from builtins import pow # I prefer built-in pow to math.pow in REPL.
+from itertools import *
 
 try:
     import numpy as np
