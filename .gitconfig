@@ -21,6 +21,7 @@
 
 	# alias: list all aliases
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	file = log --follow -p
 	graph = log --graph --oneline
 	# refresh: update main branch and update current branch with main
 	refresh = !git stash -u && git switch main && git pull && git switch - && git rebase main && git stash pop
