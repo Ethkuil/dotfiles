@@ -6,7 +6,7 @@
 	eol = lf
 	quotepath = off
 [alias]
-	amend = commit --amend -C HEAD
+	# --- simple convenient forms ---
 	cm = commit -m
 	ds = diff --staged
 	sm = stash push -m
@@ -17,14 +17,23 @@
 	undo = restore
 	unstage = reset
 
-	# ---
+	# --- to some degree unusual patterns ---
 
-	# alias: list all aliases.
+	# -- meta --
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-	file = log --follow -p
-	graph = log --graph --oneline
+
+	# -- index -> remote --
+	amend = commit --amend -C HEAD
+
+	# -- remote -> index --
 	# refresh: refresh current branch by origin/$branch.
 	refresh = "!f() { git stash -u; branch=${1:-$(git rev-parse --abbrev-ref HEAD)}; git fetch origin $branch; git rebase origin/$branch; git stash pop; }; f"
+
+	# -- info --
+	file = log --follow -p
+	graph = log --graph --oneline
+
+	# -- manage --
 	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\""
 [push]
 	default = current
