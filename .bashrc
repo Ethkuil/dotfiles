@@ -78,6 +78,7 @@ _cd() {
   fi
 }
 alias ..='_cd'
+alias grt='cd "$(git rev-parse --show-toplevel || echo $PWD)"'
 zz() {
   pattern="$1"
   shift
