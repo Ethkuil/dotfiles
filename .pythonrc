@@ -5,7 +5,10 @@ from fractions import Fraction
 from fractions import Fraction as F
 from math import *
 from builtins import pow # I prefer built-in pow to math.pow in REPL.
+
+# utils
 from itertools import *
+from functools import partial, reduce
 
 try:
     import numpy as np
