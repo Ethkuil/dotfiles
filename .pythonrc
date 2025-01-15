@@ -1,4 +1,4 @@
-# calculate
+# calc
 from decimal import Decimal
 from decimal import Decimal as D
 from fractions import Fraction
@@ -10,8 +10,14 @@ from builtins import pow # I prefer built-in pow to math.pow in REPL.
 from itertools import *
 from functools import partial, reduce
 
+
+# calc
 try:
     import numpy as np
+except ModuleNotFoundError:
+    pass
+try:
+    import sympy as sp
 except ModuleNotFoundError:
     pass
 try:
