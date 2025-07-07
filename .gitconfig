@@ -21,6 +21,11 @@
 	# -- meta --
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 
+	# -- workflow helpers --
+	away = "!f() { git stash push -m \"away to $1\"; git switch \"$1\"; }; f"
+	back = "!f() { git switch -; git stash pop; }; f"
+	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\""
+
 	# -- index -> remote --
 	amend = commit --amend -C HEAD
 
@@ -30,9 +35,6 @@
 
 	# -- info --
 	graph = log --graph --oneline
-
-	# -- manage --
-	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\""
 [push]
 	default = current
 [pull]
