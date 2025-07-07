@@ -9,7 +9,6 @@
 	# --- simple convenient forms ---
 	cm = commit -m
 	ds = diff --staged
-	sm = stash push -m
 	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
 	st = status -sb
 	# reset and restore share the same first 3 letters, which makes tab completion hard to use.
@@ -27,10 +26,9 @@
 
 	# -- remote -> index --
 	# refresh: refresh current branch by origin/$branch.
-	refresh = "!f() { git stash -u; branch=${1:-$(git rev-parse --abbrev-ref HEAD)}; git fetch origin $branch; git rebase origin/$branch; git stash pop; }; f"
+	refresh = "!f() { git stash; branch=${1:-$(git rev-parse --abbrev-ref HEAD)}; git fetch origin $branch; git rebase origin/$branch; git stash pop; }; f"
 
 	# -- info --
-	file = log --follow -p
 	graph = log --graph --oneline
 
 	# -- manage --
