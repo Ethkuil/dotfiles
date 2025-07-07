@@ -6,7 +6,7 @@
 	eol = lf
 	quotepath = off
 [alias]
-	# --- simple convenient forms ---
+	# --- basic shortcuts ---
 	cm = commit -m
 	ds = diff --staged
 	# status, stash and stage share the same first 3 letters, which makes tab completion hard to use.
@@ -16,25 +16,23 @@
 	undo = restore
 	unstage = reset
 
-	# --- to some degree unusual patterns ---
-
-	# -- meta --
-	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
-
 	# -- workflow helpers --
 	away = "!f() { git stash push -m \"away to $1\"; git switch \"$1\"; }; f"
 	back = "!f() { git switch -; git stash pop; }; f"
 	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\""
 
-	# -- index -> remote --
+	# -- index -> repo --
 	amend = commit --amend -C HEAD
 
-	# -- remote -> index --
+	# -- remote -> local --
 	# refresh: refresh current branch by origin/$branch.
 	refresh = "!f() { git stash; branch=${1:-$(git rev-parse --abbrev-ref HEAD)}; git fetch origin $branch; git rebase origin/$branch; git stash pop; }; f"
 
 	# -- info --
 	graph = log --graph --oneline
+
+	# -- meta --
+	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [push]
 	default = current
 [pull]
