@@ -20,7 +20,8 @@
 	sw = "!f() { git stash; git switch $1; git stash pop; }; f"
 	away = "!f() { git stash push -m \"away to $1\"; git switch \"$1\"; }; f"
 	back = "!f() { git switch -; git stash pop; }; f"
-	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\""
+	wip = commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"
+    sm = stash push -m
 
 	# -- workspace --
 	clean-ignored = clean -dX
