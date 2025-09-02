@@ -35,6 +35,7 @@
 
 	# -- info --
 	graph = log --graph --oneline
+	news = "!f() { branch=${1:-main}; git log --raw origin/$branch@{1}..origin/$branch@{0}; }; f"
 
 	# -- meta --
 	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
