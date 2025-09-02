@@ -15,13 +15,15 @@
 	uncommit = reset HEAD~
 	undo = restore
 	unstage = reset
+	# stash operations
+	sm = stash push -m
+	sp = stash pop
 
 	# -- workflow helpers --
 	sw = "!f() { git stash; git switch $1; git stash pop; }; f"
 	away = "!f() { git stash push -m \"away to $1\"; git switch \"$1\"; }; f"
 	back = "!f() { git switch -; git stash pop; }; f"
 	wip = commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"
-    sm = stash push -m
 
 	# -- workspace --
 	clean-ignored = clean -dX
